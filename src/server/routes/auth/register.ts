@@ -11,7 +11,6 @@ router.post('/', async (req, res) => {
     try {
         newUser.password = generateHash(newUser.password);
         const result = await users.insert(newUser);
-        res.status(201).json({ message: "Your account has been created. Please sign in." });
 
         const token = jwt.sign(
             { userid: result.insertId, email: newUser.email, role: 1 },

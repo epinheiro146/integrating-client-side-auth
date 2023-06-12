@@ -22,7 +22,7 @@ const Register = () => {
 
         apiService("/auth/register", "POST", data)
             .then(res => {
-                swal("Welcome Aboard!", `${res.message}`, "success")
+                swal("Welcome Aboard!", "Your account is now registered. Please sign in.", "success")
                 nav('/login');
             })
             .catch(error => swal("Oops!", `${error.message}`, "error"));
